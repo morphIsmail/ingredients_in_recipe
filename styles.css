@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: sans-serif;
+  font-size: 12px;
+}
+button {
+  cursor: pointer;
+}
+.d-flex {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0;
+}
+.spcb {
+  justify-content: space-between;
+}
+input, button, select {
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #eee;
+}
+/* Кнопки */
+.add_btn, .result_btn {
+  background-color: #6fb9fe;
+  color: #fff;
+  margin: 10px 0;
+}
+.remove_btn {
+  padding: 5px 8px;
+  background-color: #ff9999;
+  font-weight: bold;
+  font-size: 12px;
+}
+/* Поля ввода */
+.item_name {
+  width: 130px;
+}
+.item_count {
+  width: 60px;
+}
+.item_type {
+  width: 60px;
+}
+.item_ratio {
+  width: 60px;
+}
+/* Название рецпта */
+.recipe_name {
+  cursor: pointer;
+}
