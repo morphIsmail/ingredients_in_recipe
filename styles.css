@@ -29,9 +29,10 @@ input, button, select {
   background-color: #eee;
 }
 /* Изменить размер текста */
-.fsize button {
-  width: 30px;
-  height: 30px;
+.fsize button,
+#copy_btn {
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
