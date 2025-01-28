@@ -1,3 +1,4 @@
+/* Общие */
 body {
   margin: 0;
   padding: 20px;
@@ -6,6 +7,9 @@ body {
 }
 button {
   cursor: pointer;
+}
+a {
+  text-decoration: none;
 }
 .d-flex {
   display: flex;
@@ -23,6 +27,14 @@ input, button, select {
   border: none;
   outline: none;
   background-color: #eee;
+}
+/* Изменить размер текста */
+.fsize button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* Кнопки */
 .add_btn, .result_btn {

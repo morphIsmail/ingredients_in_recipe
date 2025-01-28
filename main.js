@@ -99,3 +99,35 @@ document.querySelector('.recipe').addEventListener('click', function(e) {
   // Выводим исходный рецепт
   // console.log(recipe)
 })
+
+// Изменить размер текста
+// Уменьшить
+document.querySelector('.fsize button:first-child').addEventListener('click', function() {
+  let currentFontSize = parseInt(window.getComputedStyle(document.body).fontSize);
+  if (currentFontSize > 12) { // Проверяем, чтобы шрифт был не менее 12 пикселей
+    document.body.style.fontSize = `${currentFontSize - 1}px`;
+  }
+})
+// Увеличить
+document.querySelector('.fsize button:last-child').addEventListener('click', function() {
+  let currentFontSize = parseInt(window.getComputedStyle(document.body).fontSize);
+  if (currentFontSize < 16) { // Проверяем, чтобы шрифт был не более 16 пикселей
+    document.body.style.fontSize = `${currentFontSize + 1}px`;
+  }
+})
+
+// Копирование рецепта в буфер обмена
+const copyButton = document.getElementById('copy_btn');
+copyButton.addEventListener('click', () => {
+  // Получаем текст из блока .text
+  const textToCopy = document.querySelector('.copy').innerText;
+
+  // Копируем текст в буфер обмена
+  navigator.clipboard.writeText(textToCopy)
+      .then(() => {
+          alert('Рецепт успешно скопирован!');
+      })
+      .catch(err => {
+          console.error('Не удалось скопировать текст:', err);
+      });
+});
