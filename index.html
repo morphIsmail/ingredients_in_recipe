@@ -17,7 +17,7 @@
   <details>
     <summary>Инструкция</summary>
     <ol>
-      <li>Заполните название, количество и единицу измерения для ингредиента, нажмите кнопку "Добавить ингредиент". Если количество не заполнять или установить равным нулю, то получится значение - по вкусу.</li>
+      <li>Заполните название, количество и единицу измерения для ингредиента, нажмите кнопку "Добавить". Если количество не заполнять или установить равным нулю, то получится значение - по вкусу.</li>
       <li>Если нужно удалить ингредиент, то нажмите на красную кнопку справа от ингредиента, который добавили ранее.</li>
       <li>Выберите уменьшить или увеличить количество ингредиентов и введите во сколько раз.</li>
       <li>Введите название рецепта нажав на заголовок с соответствующим текстом.</li>
@@ -25,48 +25,61 @@
       <li>Если удалили ингредиенты и/или добавили новые, то повторно нажмите кнопку "Вычислить".</li>
       <li>Можно сделать скриншот готового результата или скопировть в буфер обмена.</li>
     </ol>
+    <p><em>Если нашли ошибку в тексте или работе программы, а также с вопросами и пожеланиями о данном инструменте, пожалуйста <a href="mailto:ismail_2016@mail.ru?subject=Калькулятор ингредиентов в рецепте">напишите автору</a>.</em></p>
+    <p><a href="https://github.com/morphIsmail/ingredients_in_recipe">Код и инструкция на GitHub</a></p>
   </details>
-  <div class="d-flex fsize">
-    <button>-</button>Размер текста<button>+</button>
-  </div>
+  <fieldset>
+    <legend>Изменить размер текста</legend>
+    <div class="d-flex fsize">
+      <button>-</button><button>+</button>
+    </div>
+  </fieldset>
   <div class="container">
-    <div class="list">
-      <div class="item d-flex">
-        <input type="text" placeholder="Название" class="item_name">
-        <input type="number" placeholder="Кол-во" class="item_count">
-        <select class="item_type">
-          <option value="г.">г.</option>
-          <option value="кг.">кг.</option>
-          <option value="мл.">мл.</option>
-          <option value="л.">л.</option>
-          <option value="ч. л.">ч. л.</option>
-          <option value="ст. л.">ст. л.</option>
-          <option value="шт.">шт.</option>
-        </select>
+    <fieldset>
+      <legend>Добавить ингредиенты</legend>
+      <div class="list">
+        <div class="item d-flex">
+          <input type="text" placeholder="Название" class="item_name">
+          <input type="number" placeholder="Кол-во" class="item_count">
+          <select class="item_type">
+            <option value="г.">г.</option>
+            <option value="кг.">кг.</option>
+            <option value="мл.">мл.</option>
+            <option value="л.">л.</option>
+            <option value="ч. л.">ч. л.</option>
+            <option value="ст. л.">ст. л.</option>
+            <option value="шт.">шт.</option>
+          </select>
+        </div>
       </div>
-    </div>
-    <button class="add_btn">Добавить ингредиент</button>
-    <div class="recipe"></div>
-    <div class="result_recipe"></div>
-    <div class="d-flex">
-      <select class="item_ratio_type">
-        <option value="1">Уменьшить во сколько раз</option>
-        <option value="2">Увеличить во сколько раз</option>
-      </select>
-      <input type="number" placeholder="4" value="4" class="item_ratio">
-    </div>
-    <button class="result_btn">Вычислить</button>
-    <div class="copy">
-      <h3 class="recipe_name" title="Нажмите, чтобы ввести название рецепта">Нажмите, чтобы ввести название рецепта</h3>
-      <div class="result_new_recipe"></div>
-    </div>
-    <button id="copy_btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
-      </svg>
-    </button>
+      <button class="add_btn">Добавить</button>
+      <div class="recipe"></div>
+    </fieldset>
+    <fieldset>
+      <legend>Изменить рецепт</legend>
+      <div class="result_recipe"></div>
+      <div class="d-flex">
+        <select class="item_ratio_type">
+          <option value="1">Уменьшить во сколько раз</option>
+          <option value="2">Увеличить во сколько раз</option>
+        </select>
+        <input type="number" placeholder="4" value="4" class="item_ratio">
+      </div>
+      <button class="result_btn">Вычислить</button>
+    </fieldset>
+    <fieldset>
+      <legend>Рецепт</legend>
+      <div class="copy">
+        <h3 class="recipe_name" title="Нажмите, чтобы ввести название рецепта">Нажмите, чтобы ввести название рецепта</h3>
+        <div class="result_new_recipe"></div>
+      </div>
+      <button id="copy_btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+        </svg>
+      </button>
+    </fieldset>
   </div>
-  <p><em>Если нашли ошибку в тексте или работе программы, а также с вопросами и пожеланиями о данном инструменте, пожалуйста <a href="mailto:ismail_2016@mail.ru?subject=Калькулятор ингредиентов в рецепте">напишите автору</a>.</em></p>
   <script src="main.js"></script>
 </body>
 </html>
