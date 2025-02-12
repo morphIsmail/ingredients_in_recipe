@@ -5,7 +5,8 @@ body {
   font-family: sans-serif;
   font-size: 12px;
 }
-button {
+button,
+.recipe_name {
   cursor: pointer;
 }
 a {
@@ -25,7 +26,7 @@ legend {
   align-items: center;
   margin: 10px 0;
 }
-.spcb {
+.space_beetwen {
   justify-content: space-between;
 }
 input, button, select {
@@ -61,16 +62,8 @@ input, button, select {
 .item_name {
   width: 130px;
 }
-.item_count {
-  width: 60px;
-}
-.item_type {
-  width: 60px;
-}
+.item_count,
+.item_type,
 .item_ratio {
   width: 60px;
-}
-/* Название рецпта */
-.recipe_name {
-  cursor: pointer;
 }

@@ -9,18 +9,20 @@ document.querySelector('.add_btn').addEventListener('click', function() {
     alert("Введите название ингредиента")
     return false
   }
-  recipe.push({"name": name.value, "count": +count.value, "type": type.value})
-
+  recipe.push({
+    "name": name.value, 
+    "count": +count.value, 
+    "type": type.value
+  })
   let result
   if(+count.value === 0) {
     result = `${name.value} - по вкусу`
   } else {
     result = `${name.value} - ${count.value} ${type.value}`
   }
-
   let div = document.createElement('div')
   div.innerHTML = `
-<div class="d-flex spcb">
+<div class="d-flex space_beetwen">
   <div>${result}</div>
   <button class="remove_btn" data-name="${name.value}">&times;</button>
 </div>
@@ -28,37 +30,37 @@ document.querySelector('.add_btn').addEventListener('click', function() {
   document.querySelector('.recipe').append(div)
   name.value = ''
   count.value = ''
-  
-  // Выводим исходный рецепт
-  // console.log(recipe)
 })
 
 // Кнопка Вычислить
 document.querySelector('.result_btn').addEventListener('click', function() {
   // Очистить прошлый результат
-  document.querySelector('.result_recipe').innerHTML = ''
   document.querySelector('.result_new_recipe').innerHTML = ''
-
   let ratio_type = +document.querySelector('.item_ratio_type').value
   let ratio = +document.querySelector('.item_ratio').value
   if(!ratio) {
     alert("Введите число кроме нуля")
     return false
   }
-
+  // Создаем новый рецепт на основе старого
   let new_recipe = []
   if(ratio_type === 1) {
     for(let i=0; i<recipe.length; i++) {
-      new_recipe.push({"name": recipe[i]["name"], "count": +recipe[i]["count"]/ratio, "type": recipe[i]["type"]})
+      new_recipe.push({
+        "name": recipe[i]["name"], 
+        "count": (+recipe[i]["count"]/ratio).toFixed(2), 
+        "type": recipe[i]["type"]
+      })
     }
   } else if(ratio_type === 2) {
     for(let i=0; i<recipe.length; i++) {
-      new_recipe.push({"name": recipe[i]["name"], "count": +recipe[i]["count"]*ratio, "type": recipe[i]["type"]})
+      new_recipe.push({
+        "name": recipe[i]["name"], 
+        "count": +recipe[i]["count"]*ratio, 
+        "type": recipe[i]["type"]
+      })
     }
   }
-  // Выводим новый рецепт
-  // console.log(new_recipe) 
-
   // Выводим Новый рецепт
   for(let i=0; i<new_recipe.length; i++) {
     let result
@@ -96,38 +98,35 @@ document.querySelector('.recipe').addEventListener('click', function(e) {
       recipe.splice(i, 1) // удалить элемент
     }
   }
-  // Выводим исходный рецепт
-  // console.log(recipe)
 })
 
 // Изменить размер текста
 // Уменьшить
 document.querySelector('.fsize button:first-child').addEventListener('click', function() {
-  let currentFontSize = parseInt(window.getComputedStyle(document.body).fontSize);
+  let currentFontSize = parseInt(window.getComputedStyle(document.body).fontSize)
   if (currentFontSize > 12) { // Проверяем, чтобы шрифт был не менее 12 пикселей
-    document.body.style.fontSize = `${currentFontSize - 1}px`;
+    document.body.style.fontSize = `${currentFontSize - 1}px`
   }
 })
 // Увеличить
 document.querySelector('.fsize button:last-child').addEventListener('click', function() {
-  let currentFontSize = parseInt(window.getComputedStyle(document.body).fontSize);
+  let currentFontSize = parseInt(window.getComputedStyle(document.body).fontSize)
   if (currentFontSize < 16) { // Проверяем, чтобы шрифт был не более 16 пикселей
-    document.body.style.fontSize = `${currentFontSize + 1}px`;
+    document.body.style.fontSize = `${currentFontSize + 1}px`
   }
 })
 
 // Копирование рецепта в буфер обмена
-const copyButton = document.getElementById('copy_btn');
+const copyButton = document.getElementById('copy_btn')
 copyButton.addEventListener('click', () => {
   // Получаем текст из блока .text
-  const textToCopy = document.querySelector('.copy').innerText;
-
+  const textToCopy = document.querySelector('.copy').innerText
   // Копируем текст в буфер обмена
   navigator.clipboard.writeText(textToCopy)
-      .then(() => {
-          alert('Рецепт успешно скопирован!');
-      })
-      .catch(err => {
-          console.error('Не удалось скопировать текст:', err);
-      });
-});
+    .then(() => {
+      alert('Рецепт успешно скопирован!')
+    })
+    .catch(err => {
+      console.error('Не удалось скопировать текст:', err)
+    })
+})
